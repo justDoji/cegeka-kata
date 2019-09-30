@@ -41,7 +41,7 @@ public class PlayerTest {
 
         Player player = new Player(handCards, startingTableauCard);
 
-        Assertions.assertThat(player.getTableauCards()).hasSize(1);
-        Assertions.assertThat(player.getTableauCards().get(0)).isEqualTo(startingTableauCard);
+        Assertions.assertThat(player.getPaletteCards()).hasSize(1);
+        Assertions.assertThat(player.getPaletteCards().get(0)).isEqualTo(startingTableauCard);
     }
 }

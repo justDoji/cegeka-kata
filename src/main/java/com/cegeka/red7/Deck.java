@@ -1,5 +1,6 @@
 package com.cegeka.red7;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -7,7 +8,7 @@ import java.util.stream.IntStream;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class Deck {
-    private final List<Card> cardsInDeck = initializeCardsInDeck();
+    private List<Card> cardsInDeck = initializeCardsInDeck(); //Dit is een soort stack
 
     private List<Card> initializeCardsInDeck() {
         List<Card> cardsInDeck = newArrayList();
@@ -25,7 +26,13 @@ public class Deck {
         return IntStream.range(1, 8).mapToObj(i -> new Card(cardColor, i)).collect(Collectors.toList());
     }
 
-    public Card getCard() {
-        return cardsInDeck.get(0);
+    public Card drawCard() {
+        Card drawnCard = cardsInDeck.get(0);
+        cardsInDeck.remove(drawnCard);
+        return drawnCard;
+    }
+
+    List<Card> getCardsInDeck() {
+        return new ArrayList<>(cardsInDeck);
     }
 }
